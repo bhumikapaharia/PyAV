@@ -86,5 +86,17 @@ jobs:
               whoami && \
               pwd && \
               ls && \
-
+              export PYAV_PYTHON: python3.8 && \
+              export PYAV_LIBRARY: ffmpeg-"4.2" && \
+              apt-get -y update && \
+              apt-get -y install autoconf automake build-essential cmake libtool mercurial pkg-config texinfo wget yasm zlib1g-dev && \
+              apt-get -y install libass-dev libfreetype6-dev libjpeg-dev libtheora-dev libvorbis-dev libx264-dev && \
+              apt-get -y install doxygen && \
+              . scripts/activate.sh ffmpeg-"4.2" && \
+              scripts/build-deps && \
+              . scripts/activate.sh ffmpeg-"4.2" && \
+              scripts/build && \
+              . scripts/activate.sh ffmpeg-"4.2" && \
+              python -m av --version && \
+              scripts/test && \
               deactivate'
