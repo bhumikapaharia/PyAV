@@ -61,6 +61,9 @@ jobs:
         . scripts/activate.sh ffmpeg-${{ matrix.config.ffmpeg }}
         python -m av --version # Assert it can import.
         scripts/test
+        
+        
+        
   armv64_job:
       name: Build and Test for arm64
       runs-on: ubuntu-20.04
